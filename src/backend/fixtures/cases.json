@@ -1,0 +1,212 @@
+[
+  {
+    "case_id": "CASE-001",
+    "case_title": "常规门诊申报",
+    "case_type": "门诊",
+    "claim_summary": "脱敏申报人于2024年3月因上呼吸道感染在社区医疗机构就诊，申报门诊费用合计385元，含药品费280元、诊疗费105元。就诊时间、费用金额均在常规范围内，无异常模式。",
+    "risk_score": 0.12,
+    "risk_level": "low",
+    "model_evidence_ref": "model:score:v1.0",
+    "rule_hits": [
+      {
+        "rule_id": "R001",
+        "rule_name": "单日费用异常",
+        "hit": false,
+        "severity": "low",
+        "reason": "单日申报金额385元，远低于同类均值1,200元，属正常范围。",
+        "evidence_ref": "rule:R001:daily_amount_normal",
+        "version": "1.0.0"
+      },
+      {
+        "rule_id": "R002",
+        "rule_name": "自费比例过高",
+        "hit": false,
+        "severity": "medium",
+        "reason": "自费项目占比为0%，全部费用均在医保目录内。",
+        "evidence_ref": "rule:R002:self_pay_ratio_zero",
+        "version": "1.0.0"
+      }
+    ],
+    "expected_recommendation": "常规处理，无需额外调查。",
+    "initial_trace": [
+      {
+        "node_id": "trace:case_selected",
+        "node_name": "案件已选择",
+        "status": "completed",
+        "summary": "审核员选择了常规门诊申报案件 CASE-001",
+        "order": 1
+      },
+      {
+        "node_id": "trace:model_scored",
+        "node_name": "模型评分完成",
+        "status": "completed",
+        "summary": "业务风险信号 0.12，风险等级：低",
+        "order": 2
+      },
+      {
+        "node_id": "trace:rules_checked",
+        "node_name": "规则命中检查完成",
+        "status": "completed",
+        "summary": "检查 2 条规则，命中 0 条",
+        "order": 3
+      },
+      {
+        "node_id": "trace:evidence_generated",
+        "node_name": "证据包已生成",
+        "status": "completed",
+        "summary": "Agent 基于模型评分和规则结果生成证据包",
+        "order": 4
+      },
+      {
+        "node_id": "trace:manual_review_pending",
+        "node_name": "待人工审核",
+        "status": "pending",
+        "summary": "等待审核员提交处理意见",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "case_id": "CASE-002",
+    "case_title": "大额住院申报复核线索",
+    "case_type": "住院",
+    "claim_summary": "脱敏申报人于2024年5月在三级医疗机构住院治疗15天，申报总费用52,800元，其中自费药品费用18,500元（占比35%），单日最高费用12,000元出现在住院第1天。费用分布异常集中在前3天，后续12天费用持续低位。",
+    "risk_score": 0.87,
+    "risk_level": "high",
+    "model_evidence_ref": "model:score:v1.0",
+    "rule_hits": [
+      {
+        "rule_id": "R001",
+        "rule_name": "单日费用异常",
+        "hit": true,
+        "severity": "high",
+        "reason": "住院第1天费用12,000元，超出同类均值4,500元的2.6倍，且集中在前3天。",
+        "evidence_ref": "rule:R001:daily_amount_spike",
+        "version": "1.0.0"
+      },
+      {
+        "rule_id": "R002",
+        "rule_name": "自费比例过高",
+        "hit": true,
+        "severity": "high",
+        "reason": "自费药品费用18,500元，占总费用35%，超出同类均值15%。",
+        "evidence_ref": "rule:R002:self_pay_ratio_high",
+        "version": "1.0.0"
+      },
+      {
+        "rule_id": "R003",
+        "rule_name": "费用分布异常",
+        "hit": true,
+        "severity": "medium",
+        "reason": "前3天费用占总费用78%，后续12天费用持续低位，不符合常规住院费用分布模式。",
+        "evidence_ref": "rule:R003:cost_distribution_anomaly",
+        "version": "1.0.0"
+      }
+    ],
+    "expected_recommendation": "建议进一步调查核实自费药品使用合理性及费用集中原因。",
+    "initial_trace": [
+      {
+        "node_id": "trace:case_selected",
+        "node_name": "案件已选择",
+        "status": "completed",
+        "summary": "审核员选择了大额住院申报案件 CASE-002",
+        "order": 1
+      },
+      {
+        "node_id": "trace:model_scored",
+        "node_name": "模型评分完成",
+        "status": "completed",
+        "summary": "业务风险信号 0.87，风险等级：高",
+        "order": 2
+      },
+      {
+        "node_id": "trace:rules_checked",
+        "node_name": "规则命中检查完成",
+        "status": "completed",
+        "summary": "检查 3 条规则，命中 3 条",
+        "order": 3
+      },
+      {
+        "node_id": "trace:evidence_generated",
+        "node_name": "证据包已生成",
+        "status": "completed",
+        "summary": "Agent 基于模型评分和规则结果生成证据包，建议进一步调查",
+        "order": 4
+      },
+      {
+        "node_id": "trace:manual_review_pending",
+        "node_name": "待人工审核",
+        "status": "pending",
+        "summary": "等待审核员提交处理意见",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "case_id": "CASE-003",
+    "case_title": "跨省就医申报材料待补充",
+    "case_type": "跨省就医",
+    "claim_summary": "脱敏申报人于2024年6月在省外医疗机构因急诊住院，申报费用8,200元。异地就医备案状态系统中未明确记录，就医地医院未接入国家医保直接结算平台。部分费用清单信息不完整，缺少住院期间每日费用明细。",
+    "risk_score": 0.55,
+    "risk_level": "medium",
+    "model_evidence_ref": "model:score:v1.0",
+    "rule_hits": [
+      {
+        "rule_id": "R004",
+        "rule_name": "异地就医备案异常",
+        "hit": true,
+        "severity": "medium",
+        "reason": "系统中未查到有效的异地就医备案记录，且就医医院未接入直结平台。",
+        "evidence_ref": "rule:R004:remote_filing_missing",
+        "version": "1.0.0"
+      },
+      {
+        "rule_id": "R001",
+        "rule_name": "单日费用异常",
+        "hit": false,
+        "severity": "low",
+        "reason": "费用清单不完整，无法逐日校验费用分布，仅能基于总金额判断。",
+        "evidence_ref": "rule:R001:insufficient_data",
+        "version": "1.0.0"
+      }
+    ],
+    "expected_recommendation": "需补充异地就医备案材料和完整费用清单后再做判断。",
+    "initial_trace": [
+      {
+        "node_id": "trace:case_selected",
+        "node_name": "案件已选择",
+        "status": "completed",
+        "summary": "审核员选择了跨省就医申报案件 CASE-003",
+        "order": 1
+      },
+      {
+        "node_id": "trace:model_scored",
+        "node_name": "模型评分完成",
+        "status": "completed",
+        "summary": "业务风险信号 0.55，风险等级：中",
+        "order": 2
+      },
+      {
+        "node_id": "trace:rules_checked",
+        "node_name": "规则命中检查完成",
+        "status": "completed",
+        "summary": "检查 2 条规则，命中 1 条（数据不完整影响判断）",
+        "order": 3
+      },
+      {
+        "node_id": "trace:evidence_generated",
+        "node_name": "证据包已生成",
+        "status": "completed",
+        "summary": "Agent 生成证据包，标记证据不足，建议补充材料",
+        "order": 4
+      },
+      {
+        "node_id": "trace:manual_review_pending",
+        "node_name": "待人工审核",
+        "status": "pending",
+        "summary": "等待审核员提交处理意见",
+        "order": 5
+      }
+    ]
+  }
+]

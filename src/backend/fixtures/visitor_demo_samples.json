@@ -1,0 +1,379 @@
+{
+  "version": "visitor-demo-samples-v0.3",
+  "source": "preprocessed selection from model/mediredata.csv; RES is used only for offline sample validation and is never exposed at runtime",
+  "samples": [
+    {
+      "record_id": "SIM_PERSON_012345",
+      "expected_res": 0,
+      "sample_result": "normal",
+      "sample_category": "正常样本：普通门诊材料齐全",
+      "sample_label": "普通门诊材料齐全",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "普通门诊手工上传材料",
+      "case_title": "普通门诊材料齐全样本",
+      "expected_rule_ids": [],
+      "case_context": {
+        "material_scenario": "routine_outpatient_complete",
+        "insured_region": "北京",
+        "treatment_region": "北京",
+        "visit_type": "普通门诊",
+        "claim_mode": "manual_upload_review",
+        "claim_mode_label": "模拟手工上传材料",
+        "direct_settlement": true,
+        "filing_status": "not_applicable",
+        "emergency_material_status": "not_applicable",
+        "diagnosis": "普通门诊复诊",
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "prescription", "status": "parsed"},
+            {"type": "outpatient_record", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_006847",
+      "expected_res": 0,
+      "sample_result": "normal",
+      "sample_category": "正常样本：异地门急诊手工报销材料齐全",
+      "sample_label": "异地门急诊手工报销材料齐全",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "异地门诊急诊手工报销",
+      "case_title": "异地门急诊手工报销材料齐全样本",
+      "expected_rule_ids": [],
+      "case_context": {
+        "material_scenario": "remote_emergency_manual_complete",
+        "insured_region": "北京",
+        "treatment_region": "上海",
+        "visit_type": "异地门诊急诊",
+        "claim_mode": "manual_reimbursement",
+        "claim_mode_label": "手工报销",
+        "direct_settlement": false,
+        "filing_status": "filed_or_emergency_exception_supported",
+        "emergency_material_status": "clear",
+        "diagnosis": "急性上呼吸道感染",
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "prescription", "status": "parsed"},
+            {"type": "emergency_record", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_011872",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "政策口径核验：异地手工报销",
+      "sample_label": "异地门急诊手工报销，备案状态不明",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "异地门诊急诊手工报销",
+      "case_title": "异地门急诊手工报销备案待核验样本",
+      "expected_rule_ids": ["OP-R009"],
+      "case_context": {
+        "material_scenario": "remote_emergency_manual_unknown_filing",
+        "insured_region": "北京",
+        "treatment_region": "上海",
+        "visit_type": "异地门诊急诊",
+        "claim_mode": "manual_reimbursement",
+        "claim_mode_label": "手工报销",
+        "direct_settlement": false,
+        "filing_status": "unknown",
+        "emergency_material_status": "present_but_needs_verification",
+        "diagnosis": "急性上呼吸道感染",
+        "policy_check_focus": [
+          "北京参保地异地门诊/手工报销政策",
+          "上海就医地药品和诊疗项目目录",
+          "备案状态和急诊例外材料"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "prescription", "status": "parsed"},
+            {"type": "emergency_record", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_006395",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "政策口径核验：急诊材料",
+      "sample_label": "申请急诊但材料缺少急诊标识",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "异地门诊急诊手工报销",
+      "case_title": "急诊身份材料待核验样本",
+      "expected_rule_ids": ["OP-R010"],
+      "case_context": {
+        "material_scenario": "remote_emergency_identity_gap",
+        "insured_region": "北京",
+        "treatment_region": "上海",
+        "visit_type": "异地门诊急诊",
+        "application_visit_type": "急诊",
+        "actual_material_visit_type": "普通门诊",
+        "claim_mode": "manual_reimbursement",
+        "claim_mode_label": "手工报销",
+        "direct_settlement": false,
+        "filing_status": "unknown",
+        "emergency_material_status": "ordinary_outpatient_only",
+        "diagnosis": "发热、咳嗽待查",
+        "policy_check_focus": [
+          "急诊抢救视同备案要求",
+          "急诊号别、急诊章、抢救记录",
+          "普通门诊手工报销路径"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "prescription", "status": "parsed"},
+            {"type": "ordinary_outpatient_record", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_002052",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "政策口径核验：待遇目录混用",
+      "sample_label": "上海侧预估比例不能直接作为北京手工报销待遇",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "异地门诊急诊手工报销",
+      "case_title": "参保地待遇与就医地目录混用样本",
+      "expected_rule_ids": ["OP-R011"],
+      "case_context": {
+        "material_scenario": "remote_benefit_catalog_mix",
+        "insured_region": "北京",
+        "treatment_region": "上海",
+        "insured_person_type": "退休职工",
+        "visit_type": "异地门诊急诊",
+        "claim_mode": "manual_reimbursement",
+        "claim_mode_label": "手工报销",
+        "direct_settlement": false,
+        "filing_status": "unknown",
+        "emergency_material_status": "present_but_needs_verification",
+        "benefit_calculation_basis": "treatment_region_estimate",
+        "payment_basis_source": "上海侧票据预估口径",
+        "catalog_basis_source": "上海就医地目录",
+        "policy_check_focus": [
+          "北京退休人员门急诊待遇",
+          "上海药品和诊疗项目支付范围",
+          "手工报销待遇测算口径"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed", "note": "票据含上海侧预估比例"},
+            {"type": "prescription", "status": "parsed"},
+            {"type": "emergency_record", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_014632",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "政策版本核验",
+      "sample_label": "线上备案即时生效与旧线下备案表提示冲突",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "异地门诊手工报销",
+      "case_title": "政策版本冲突核验样本",
+      "expected_rule_ids": ["OP-R012"],
+      "case_context": {
+        "material_scenario": "policy_version_conflict",
+        "insured_region": "北京",
+        "treatment_region": "上海",
+        "visit_type": "异地门诊",
+        "visit_date": "2026-05-16",
+        "claim_mode": "manual_reimbursement",
+        "claim_mode_label": "手工报销",
+        "direct_settlement": false,
+        "filing_status": "online_filing_effective",
+        "rule_policy_version": "北京异地备案本地说明-2023",
+        "rule_policy_publish_date": "2023-01-01",
+        "latest_policy_publish_date": "2026-04-01",
+        "latest_policy_effective_date": "2026-04-01",
+        "policy_recall_versions": ["2023-01-01", "2026-04-01"],
+        "policy_check_focus": [
+          "effective_date",
+          "publish_date",
+          "status=active",
+          "服务日期对应有效政策"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "online_filing_record", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_011569",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "费用结构异常：检查费",
+      "sample_label": "检查费占比异常，CT相关收费待核验",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "普通门诊医保结算后复核",
+      "case_title": "检查费占比异常样本",
+      "expected_rule_ids": ["OP-R004"],
+      "case_context": {
+        "material_scenario": "high_check_fee_ct",
+        "insured_region": "北京",
+        "treatment_region": "北京",
+        "visit_type": "普通门诊",
+        "claim_mode": "post_settlement_review",
+        "claim_mode_label": "医保结算后复核",
+        "direct_settlement": true,
+        "diagnosis": "咳嗽待查",
+        "policy_check_focus": [
+          "CT报告与费用明细一致性",
+          "图文报告和胶片费独立收费依据",
+          "医学影像重复收费或超标准收费"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "outpatient_record", "status": "parsed"},
+            {"type": "chest_ct_report", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_002204",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "费用结构异常：药品费",
+      "sample_label": "药品费占比异常，目录限定支付与诊断匹配待核验",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "普通门诊手工上传材料",
+      "case_title": "药品费占比异常样本",
+      "expected_rule_ids": ["OP-R003"],
+      "case_context": {
+        "material_scenario": "high_drug_ratio_uri",
+        "insured_region": "北京",
+        "treatment_region": "北京",
+        "visit_type": "普通门诊",
+        "claim_mode": "manual_upload_review",
+        "claim_mode_label": "模拟手工上传材料",
+        "direct_settlement": true,
+        "diagnosis": "急性上呼吸道感染",
+        "policy_check_focus": [
+          "药品目录甲乙类和备注",
+          "限定支付范围",
+          "处方诊断与病历支持用药"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "prescription", "status": "parsed"},
+            {"type": "outpatient_record", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "outpatient_invoice", "status": "parsed"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_011394",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "就诊链条异常：挂号状态",
+      "sample_label": "存在费用和审批金额但挂号状态为 0",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "门诊购药手工上传材料",
+      "case_title": "挂号状态异常样本",
+      "expected_rule_ids": ["OP-R005"],
+      "case_context": {
+        "material_scenario": "registration_gap_purchase",
+        "insured_region": "北京",
+        "treatment_region": "北京",
+        "visit_type": "门诊购药",
+        "claim_mode": "manual_upload_review",
+        "claim_mode_label": "模拟手工上传材料",
+        "direct_settlement": true,
+        "registration_material_status": "missing",
+        "diagnosis": "急性上呼吸道感染",
+        "policy_check_focus": [
+          "挂号记录",
+          "门诊病历",
+          "处方和收费票据闭环"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "outpatient_invoice", "status": "parsed"},
+            {"type": "prescription", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "registration_record", "status": "missing"}
+          ]
+        }
+      }
+    },
+    {
+      "record_id": "SIM_PERSON_013515",
+      "expected_res": 1,
+      "sample_result": "abnormal",
+      "sample_category": "就诊行为异常：高频多机构",
+      "sample_label": "高频多机构慢病取药，重复购药核验点",
+      "access_mode": "游客样本仿真（模拟手工上传材料）",
+      "case_type": "门诊慢病取药复核",
+      "case_title": "高频多机构就诊样本",
+      "expected_rule_ids": ["OP-R001"],
+      "case_context": {
+        "material_scenario": "high_frequency_multi_org_chronic",
+        "insured_region": "北京",
+        "treatment_region": "北京",
+        "visit_type": "门诊慢病取药",
+        "claim_mode": "post_settlement_review",
+        "claim_mode_label": "医保结算后复核",
+        "direct_settlement": true,
+        "diagnosis": "高血压病；2型糖尿病；血脂异常",
+        "policy_check_focus": [
+          "处方日期和机构",
+          "药品数量",
+          "慢病诊断和长期处方依据",
+          "重复报销核验"
+        ],
+        "attachment_profile": {
+          "mode": "manual_upload",
+          "ocr_status": "parsed",
+          "items": [
+            {"type": "multiple_prescriptions", "status": "parsed"},
+            {"type": "pharmacy_receipts", "status": "parsed"},
+            {"type": "fee_detail", "status": "parsed"},
+            {"type": "chronic_outpatient_record", "status": "parsed"}
+          ]
+        }
+      }
+    }
+  ]
+}

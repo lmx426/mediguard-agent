@@ -1,0 +1,266 @@
+{
+  "version": "showcase-model-v1",
+  "notice": "预计算演示快照，不含模型文件或训练标签。",
+  "records": {
+    "SIM_PERSON_012345": {
+      "fraud_screening": {
+        "result": "not_suspected",
+        "label": "无预警",
+        "source": "模型识别预警（预计算演示）",
+        "evidence_ref": "fraud_screening:xgboost:rf-erfe-pca",
+        "reason": "基于已验证本地模型运行结果的预计算演示快照；当前请求未加载或调用模型文件。",
+        "probability": 0.003631
+      },
+      "pca_feature_scores": [
+        {
+          "name": "就诊频率指标",
+          "score": 6.600226
+        },
+        {
+          "name": "医疗资源利用指标",
+          "score": -1.428574
+        },
+        {
+          "name": "经济指标",
+          "score": 0.931961
+        },
+        {
+          "name": "医疗机构指标",
+          "score": 0.373567
+        },
+        {
+          "name": "账户支付和统筹支付指标",
+          "score": 0.600795
+        },
+        {
+          "name": "药品费用指标",
+          "score": -0.925834
+        },
+        {
+          "name": "检查费用指标",
+          "score": 0.134203
+        },
+        {
+          "name": "治疗费用指标",
+          "score": -0.333361
+        },
+        {
+          "name": "医用材料费用指标",
+          "score": 0.904668
+        },
+        {
+          "name": "支付方式和审批金额指标",
+          "score": -0.55826
+        }
+      ]
+    },
+    "SIM_PERSON_014632": {
+      "fraud_screening": {
+        "result": "suspected",
+        "label": "有预警",
+        "source": "模型识别预警（预计算演示）",
+        "evidence_ref": "fraud_screening:xgboost:rf-erfe-pca",
+        "reason": "基于已验证本地模型运行结果的预计算演示快照；当前请求未加载或调用模型文件。",
+        "probability": 0.907481
+      },
+      "pca_feature_scores": [
+        {
+          "name": "就诊频率指标",
+          "score": 3.805709
+        },
+        {
+          "name": "医疗资源利用指标",
+          "score": -0.365848
+        },
+        {
+          "name": "经济指标",
+          "score": -0.574552
+        },
+        {
+          "name": "医疗机构指标",
+          "score": -0.202541
+        },
+        {
+          "name": "账户支付和统筹支付指标",
+          "score": 0.608762
+        },
+        {
+          "name": "药品费用指标",
+          "score": 0.251531
+        },
+        {
+          "name": "检查费用指标",
+          "score": -0.162305
+        },
+        {
+          "name": "治疗费用指标",
+          "score": -0.378376
+        },
+        {
+          "name": "医用材料费用指标",
+          "score": 0.620882
+        },
+        {
+          "name": "支付方式和审批金额指标",
+          "score": -0.003037
+        }
+      ]
+    },
+    "SIM_PERSON_011569": {
+      "fraud_screening": {
+        "result": "suspected",
+        "label": "有预警",
+        "source": "模型识别预警（预计算演示）",
+        "evidence_ref": "fraud_screening:xgboost:rf-erfe-pca",
+        "reason": "基于已验证本地模型运行结果的预计算演示快照；当前请求未加载或调用模型文件。",
+        "probability": 0.99411
+      },
+      "pca_feature_scores": [
+        {
+          "name": "就诊频率指标",
+          "score": 1.938568
+        },
+        {
+          "name": "医疗资源利用指标",
+          "score": -1.575609
+        },
+        {
+          "name": "经济指标",
+          "score": 2.259862
+        },
+        {
+          "name": "医疗机构指标",
+          "score": -10.523667
+        },
+        {
+          "name": "账户支付和统筹支付指标",
+          "score": 0.514294
+        },
+        {
+          "name": "药品费用指标",
+          "score": -1.573959
+        },
+        {
+          "name": "检查费用指标",
+          "score": -0.138319
+        },
+        {
+          "name": "治疗费用指标",
+          "score": 0.585434
+        },
+        {
+          "name": "医用材料费用指标",
+          "score": 0.541293
+        },
+        {
+          "name": "支付方式和审批金额指标",
+          "score": -0.560574
+        }
+      ]
+    },
+    "SIM_PERSON_002204": {
+      "fraud_screening": {
+        "result": "suspected",
+        "label": "有预警",
+        "source": "模型识别预警（预计算演示）",
+        "evidence_ref": "fraud_screening:xgboost:rf-erfe-pca",
+        "reason": "基于已验证本地模型运行结果的预计算演示快照；当前请求未加载或调用模型文件。",
+        "probability": 0.825077
+      },
+      "pca_feature_scores": [
+        {
+          "name": "就诊频率指标",
+          "score": 4.249214
+        },
+        {
+          "name": "医疗资源利用指标",
+          "score": 0.773943
+        },
+        {
+          "name": "经济指标",
+          "score": 0.968901
+        },
+        {
+          "name": "医疗机构指标",
+          "score": 1.443535
+        },
+        {
+          "name": "账户支付和统筹支付指标",
+          "score": 0.471382
+        },
+        {
+          "name": "药品费用指标",
+          "score": -0.752654
+        },
+        {
+          "name": "检查费用指标",
+          "score": -0.189359
+        },
+        {
+          "name": "治疗费用指标",
+          "score": -0.132312
+        },
+        {
+          "name": "医用材料费用指标",
+          "score": 1.083023
+        },
+        {
+          "name": "支付方式和审批金额指标",
+          "score": 0.632108
+        }
+      ]
+    },
+    "SIM_PERSON_011394": {
+      "fraud_screening": {
+        "result": "suspected",
+        "label": "有预警",
+        "source": "模型识别预警（预计算演示）",
+        "evidence_ref": "fraud_screening:xgboost:rf-erfe-pca",
+        "reason": "基于已验证本地模型运行结果的预计算演示快照；当前请求未加载或调用模型文件。",
+        "probability": 0.903285
+      },
+      "pca_feature_scores": [
+        {
+          "name": "就诊频率指标",
+          "score": 5.463379
+        },
+        {
+          "name": "医疗资源利用指标",
+          "score": -0.79354
+        },
+        {
+          "name": "经济指标",
+          "score": 0.007586
+        },
+        {
+          "name": "医疗机构指标",
+          "score": 0.261372
+        },
+        {
+          "name": "账户支付和统筹支付指标",
+          "score": -0.378391
+        },
+        {
+          "name": "药品费用指标",
+          "score": -0.554957
+        },
+        {
+          "name": "检查费用指标",
+          "score": -0.4407
+        },
+        {
+          "name": "治疗费用指标",
+          "score": -0.692238
+        },
+        {
+          "name": "医用材料费用指标",
+          "score": 0.18898
+        },
+        {
+          "name": "支付方式和审批金额指标",
+          "score": -0.297544
+        }
+      ]
+    }
+  }
+}

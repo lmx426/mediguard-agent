@@ -1,0 +1,38 @@
+name: mediguard-agent
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - fastapi>=0.115,<1
+      - uvicorn>=0.30,<1
+      - pydantic>=2.8,<3
+      - pydantic-settings>=2,<3
+      - json-repair>=0.30,<1
+      - filelock>=3.13,<4
+      - fsspec>=2023,<2027
+      - sqlalchemy>=2,<3
+      - alembic>=1.13,<2
+      - psycopg[binary]>=3,<4
+      - pgvector>=0.5,<1
+      - mem0ai>=2,<3
+      - pytest>=8,<10
+      - httpx>=0.27,<1
+      - openai>=1.60,<3
+      - langgraph>=0.2,<2
+      - mcp>=1,<2
+      - llama-index-core>=0.12,<1
+      - llama-index-embeddings-huggingface>=0.5,<1
+      # ragas 0.4.3 currently imports a removed LangChain VertexAI path on startup.
+      - ragas==0.3.9
+      - sentence-transformers>=3,<6
+      - torch>=2.4,<3
+      - faiss-cpu>=1.8,<2
+      - qdrant-client>=1.10,<2
+      - numpy>=2,<2.3
+      - pandas>=2.2,<3
+      - pillow>=9,<12
+      - scikit-learn>=1.4,<2
+      - joblib>=1.4,<2
+      - xgboost>=2,<4

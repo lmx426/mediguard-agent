@@ -1,0 +1,77 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Node and frontend build artifacts
+node_modules/
+dist/
+build/
+.next/
+.vite/
+coverage/
+src/frontend/public/fonts/
+
+# Logs and runtime state
+*.log
+logs/
+runtime/
+tmp/
+temp/
+var/
+
+# Raw data, local models and generated retrieval assets
+mediredata.csv
+model/
+external/
+src/backend/model_assets_local/
+src/backend/infrastructure/model_assets_local/
+src/backend/policy_corpus/*
+!src/backend/policy_corpus/README.md
+
+# Internal collaboration and project-management material
+.agents/
+.claude/
+.cursor/
+AGENTS.md
+CLAUDE.md
+MediGuard_RESUME_DESCRIPTION.md
+agent_evaluation/
+tools/
+tmp_code_*.html
+src/.gitkeep
+src/frontend/README.md
+
+# Internal documentation is excluded from the public showcase.
+# Only the README screenshots are published.
+docs/*
+!docs/images/
+!docs/images/**
+
+# Deployment-specific files remain private; the public repository focuses on core code.
+deploy/
+Dockerfile
+.dockerignore
+compose*.yml
+requirements-live.txt
+requirements-showcase.txt
+requirements-ragas-eval.txt
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
